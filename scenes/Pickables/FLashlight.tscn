@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://o0wprjqm88he"]
+
+[ext_resource type="Texture2D" uid="uid://bb423hxlwws3h" path="res://assets/AESPRITES/flashlight.png" id="1_36ygs"]
+[ext_resource type="Script" path="res://scenes/Pickables/PickScript.gd" id="1_xdpvc"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="3_f0vnd"]
+[ext_resource type="Texture2D" uid="uid://cfrguoqesiywq" path="res://assets/t_flashlightpattern.png" id="4_q5dsr"]
+[ext_resource type="Script" path="res://scenes/Pickables/FlashLight.gd" id="5_8mubr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypd46"]
+radius = 26.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_0rafp"]
+radius = 0.225
+height = 100.0
+
+[sub_resource type="Gradient" id="Gradient_qnt2i"]
+colors = PackedColorArray(0.737255, 0.690196, 0.0901961, 0.0705882, 0.737255, 0.690196, 0.0901961, 0.0705882)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k0wkq"]
+gradient = SubResource("Gradient_qnt2i")
+
+[node name="Flashlight" type="Area2D" groups=["pickable"]]
+script = ExtResource("1_xdpvc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_36ygs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ypd46")
+
+[node name="Label" type="Label" parent="."]
+z_index = 101
+offset_left = -67.0
+offset_top = -38.0
+offset_right = 68.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("3_f0vnd")
+theme_override_font_sizes/font_size = 12
+text = "Press E to pick up"
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(-2, -5)
+scale = Vector2(0.045, 0.045)
+color = Color(0.92549, 0.435294, 0, 1)
+texture = ExtResource("4_q5dsr")
+texture_scale = 3.5
+script = ExtResource("5_8mubr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="FlashLight"]
+z_index = -100
+position = Vector2(0.000263214, 0)
+scale = Vector2(6900.33, 30.1471)
+mesh = SubResource("SphereMesh_0rafp")
+texture = SubResource("GradientTexture1D_k0wkq")

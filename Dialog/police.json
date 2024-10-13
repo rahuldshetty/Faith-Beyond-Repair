@@ -1,0 +1,34 @@
+[
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "The place is closed sir. You cannot leave the premise."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Me",
+		"dialog": "I'm the repairman from city. They told me to fix the lights."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "Oh! then you must hurry. The darkness is soon falling upon us. You must be quick."
+	},
+	{
+		"action": "check_state",
+		"state": "HAS_FLASHLIGHT",
+		"value": true,
+		"speaker": "Police",
+		"dialog": "Before you proceed forward, make sure to pick up the flashlight. You will need it to traverse the darkness."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "I see you have found the light. Now get going."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "May the light guide you."
+	}
+]

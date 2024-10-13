@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u36lu5mhmddd"
+path="res://.godot/imported/2- Mental Vortex.mp3-9a8b83f501266fb511a7dac174c2bfc0.mp3str"
+
+[deps]
+
+source_file="res://sounds/2- Mental Vortex.mp3"
+dest_files=["res://.godot/imported/2- Mental Vortex.mp3-9a8b83f501266fb511a7dac174c2bfc0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

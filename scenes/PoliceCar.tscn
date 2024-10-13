@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dso6wl2ymab6g"]
+
+[ext_resource type="Texture2D" uid="uid://bf174auc45fws" path="res://assets/AESPRITES/police.png" id="1_02k3c"]
+[ext_resource type="Texture2D" uid="uid://bbjr8vga18qou" path="res://assets/Circular 1 - 128x128.png" id="2_y2idt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjd36"]
+size = Vector2(88, 35.5)
+
+[node name="PoliceCar" type="StaticBody2D"]
+scale = Vector2(1.68, 1.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.73941, 1.48)
+texture = ExtResource("1_02k3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -4.25)
+shape = SubResource("RectangleShape2D_gjd36")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -21)
+color = Color(0.704091, 0.0501195, 0.187742, 1)
+texture = ExtResource("2_y2idt")
+texture_scale = 0.24

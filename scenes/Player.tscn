@@ -1,0 +1,215 @@
+[gd_scene load_steps=26 format=3 uid="uid://db7buhiga721x"]
+
+[ext_resource type="Texture2D" uid="uid://dtf30lxs5l3qv" path="res://assets/AESPRITES/player-Sheet.png" id="1_invc4"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_le7ba"]
+[ext_resource type="Texture2D" uid="uid://cfrguoqesiywq" path="res://assets/t_flashlightpattern.png" id="3_ghkti"]
+[ext_resource type="Script" path="res://scenes/Pickables/FlashLight.gd" id="4_1htee"]
+[ext_resource type="Texture2D" uid="uid://bb423hxlwws3h" path="res://assets/AESPRITES/flashlight.png" id="5_eqlqi"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="6_hb63m"]
+[ext_resource type="Texture2D" uid="uid://5t6orfuqt80o" path="res://textures/04.png" id="7_8vst2"]
+[ext_resource type="AudioStream" uid="uid://4vruoon5elbu" path="res://sounds/Flashlight Sound Effect sfx.mp3" id="7_q1ror"]
+[ext_resource type="AudioStream" uid="uid://u36lu5mhmddd" path="res://sounds/2- Mental Vortex.mp3" id="8_b6tag"]
+[ext_resource type="Texture2D" uid="uid://bbjr8vga18qou" path="res://assets/Circular 1 - 128x128.png" id="9_qffds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiefd"]
+atlas = ExtResource("1_invc4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10q86"]
+atlas = ExtResource("1_invc4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qglpx"]
+atlas = ExtResource("1_invc4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k3pv"]
+atlas = ExtResource("1_invc4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tepse"]
+atlas = ExtResource("1_invc4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8u6t"]
+atlas = ExtResource("1_invc4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvxj4"]
+atlas = ExtResource("1_invc4")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00vi4"]
+atlas = ExtResource("1_invc4")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1caii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiefd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10q86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qglpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k3pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tepse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8u6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvxj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00vi4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhvlt"]
+size = Vector2(17, 36.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kdaiw"]
+radius = 0.225
+height = 100.0
+
+[sub_resource type="Gradient" id="Gradient_5hyx3"]
+colors = PackedColorArray(0.737255, 0.690196, 0.0901961, 0.0705882, 0.737255, 0.690196, 0.0901961, 0.0705882)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1shsg"]
+gradient = SubResource("Gradient_5hyx3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixhos"]
+atlas = ExtResource("7_8vst2")
+region = Rect2(297.24, 180.917, 31.8908, 5.40521)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5qc6"]
+atlas = ExtResource("7_8vst2")
+region = Rect2(56.4037, 164.188, 33.1346, 6.75653)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 100
+script = ExtResource("1_le7ba")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1caii")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.75)
+shape = SubResource("RectangleShape2D_dhvlt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_speed = 20.0
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-2, -5)
+scale = Vector2(0.045, 0.045)
+color = Color(0.92549, 0.435294, 0, 1)
+texture = ExtResource("3_ghkti")
+texture_scale = 3.5
+script = ExtResource("4_1htee")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="FlashLight"]
+z_index = -100
+position = Vector2(0.000263214, 0)
+scale = Vector2(11882.1, -52.6025)
+mesh = SubResource("SphereMesh_kdaiw")
+texture = SubResource("GradientTexture1D_1shsg")
+
+[node name="CanvasGroup" type="CanvasLayer" parent="."]
+
+[node name="Interact Key" type="Control" parent="CanvasGroup"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = -115.0
+offset_right = 97.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasGroup/Interact Key"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -229.0
+offset_right = 213.0
+offset_bottom = -206.0
+theme_override_fonts/font = ExtResource("6_hb63m")
+theme_override_font_sizes/font_size = 14
+text = "E - Interact"
+
+[node name="FlashLightKeys" type="Control" parent="CanvasGroup"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = -84.0
+offset_right = 97.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasGroup/FlashLightKeys"]
+layout_mode = 0
+offset_left = -456.0
+offset_top = -275.0
+offset_right = -392.0
+offset_bottom = -211.0
+scale = Vector2(0.86194, 0.86055)
+texture = ExtResource("5_eqlqi")
+
+[node name="Label" type="Label" parent="CanvasGroup/FlashLightKeys"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -229.0
+offset_right = 213.0
+offset_bottom = -206.0
+theme_override_fonts/font = ExtResource("6_hb63m")
+theme_override_font_sizes/font_size = 14
+text = "F - Flashlight"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasGroup/FlashLightKeys"]
+layout_mode = 0
+offset_left = -413.0
+offset_top = -254.0
+offset_right = -337.0
+offset_bottom = -244.0
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ixhos")
+texture_progress = SubResource("AtlasTexture_c5qc6")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="FlashlightSound" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("7_q1ror")
+
+[node name="CreepyMusic" type="AudioStreamPlayer" parent="AudioListener2D"]
+stream = ExtResource("8_b6tag")
+volume_db = -3.5
+pitch_scale = 0.85
+autoplay = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("9_qffds")
+texture_scale = 1.8
