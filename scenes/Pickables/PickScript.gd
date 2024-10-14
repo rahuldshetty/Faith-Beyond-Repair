@@ -39,4 +39,3 @@ func detect_player(body: Node2D, status):
 func display_label(status:bool):
 	if label:
 		label.visible = status
-

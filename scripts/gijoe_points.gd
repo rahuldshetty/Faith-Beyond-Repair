@@ -43,4 +43,3 @@ func _on_body_exited(body):
 		player = null
 		label.hide()
 		$Label.hide()
-

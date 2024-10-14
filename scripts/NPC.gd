@@ -44,4 +44,3 @@ func _on_body_exited(body: Node2D):
 	if body.is_in_group("player"):
 		player_entered = false
 		speed_label.hide()
-
