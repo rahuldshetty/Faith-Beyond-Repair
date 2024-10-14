@@ -27,8 +27,30 @@
 		"dialog": "I see you have found the light. Now get going."
 	},
 	{
-		"action": "conversation",
+		"action": "check_state",
+		"state": "LAMP_FIXED",
+		"value": true,
 		"speaker": "Police",
 		"dialog": "May the light guide you."
-	}
+	},
+	{
+		"action": "conversation",
+		"speaker": "Me",
+		"dialog": "I've fixed the lamp post. I got the batteries from the little boy outside the graveyard."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "What!!? There is no graveyard in the next 10 miles. Also this area is under lockdown, nobody should be here other than me and you."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Police",
+		"dialog": "What is that noise?"
+	},
+	{
+		"action": "real_game_end",
+		"speaker": "Me",
+		"dialog": "This sounds familiar..."
+	},
 ]

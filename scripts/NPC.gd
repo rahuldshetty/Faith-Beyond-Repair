@@ -28,6 +28,12 @@ func _input(_event):
 				latest_index += 1
 		elif conv['action'] == 'conversation' and latest_index < len(conversation):
 			latest_index += 1
+		elif conv['action'] == 'give_battery':
+			Game.state['HAS_BATTERY'] += 1
+			Game.state[conv['take']] = "DONE"
+			latest_index += 1
+		elif conv['action'] == "real_game_end":
+			Game.state['GAME_END'] = true
 		speed_label.show()
 
 func _on_body_entered(body: Node2D):

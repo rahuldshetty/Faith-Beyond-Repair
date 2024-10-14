@@ -1,0 +1,141 @@
+[gd_scene load_steps=20 format=3 uid="uid://bwkjpahkbh5on"]
+
+[ext_resource type="Texture2D" uid="uid://dvx8ryo1doeq1" path="res://assets/AESPRITES/gmae_over.png" id="1_848nl"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_nfy5p"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="3_38y0x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agtai"]
+atlas = ExtResource("1_848nl")
+region = Rect2(0, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsx3o"]
+atlas = ExtResource("1_848nl")
+region = Rect2(720, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ueyn"]
+atlas = ExtResource("1_848nl")
+region = Rect2(1440, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfxgy"]
+atlas = ExtResource("1_848nl")
+region = Rect2(2160, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yqd5"]
+atlas = ExtResource("1_848nl")
+region = Rect2(2880, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp6lq"]
+atlas = ExtResource("1_848nl")
+region = Rect2(3600, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_708yt"]
+atlas = ExtResource("1_848nl")
+region = Rect2(4320, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhb3y"]
+atlas = ExtResource("1_848nl")
+region = Rect2(5040, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab2gg"]
+atlas = ExtResource("1_848nl")
+region = Rect2(5760, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hyfm"]
+atlas = ExtResource("1_848nl")
+region = Rect2(6480, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3foyb"]
+atlas = ExtResource("1_848nl")
+region = Rect2(7920, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ay0t"]
+atlas = ExtResource("1_848nl")
+region = Rect2(8640, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g3gw"]
+atlas = ExtResource("1_848nl")
+region = Rect2(9360, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1k0i"]
+atlas = ExtResource("1_848nl")
+region = Rect2(10080, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6df04"]
+atlas = ExtResource("1_848nl")
+region = Rect2(10800, 0, 720, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1abd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agtai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsx3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ueyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfxgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yqd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp6lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_708yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhb3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab2gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hyfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3foyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ay0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g3gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1k0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6df04")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_nfy5p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(357, 360)
+sprite_frames = SubResource("SpriteFrames_1abd8")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 292.0
+offset_top = 478.0
+offset_right = 385.0
+offset_bottom = 515.0
+theme_override_colors/font_pressed_color = Color(0.572549, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.401042, 0.155792, 0.0357973, 1)
+theme_override_fonts/font = ExtResource("3_38y0x")
+theme_override_font_sizes/font_size = 28
+text = "Play"
+
+[connection signal="animation_finished" from="CanvasLayer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

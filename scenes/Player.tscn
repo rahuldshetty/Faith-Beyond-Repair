@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://db7buhiga721x"]
+[gd_scene load_steps=28 format=3 uid="uid://db7buhiga721x"]
 
 [ext_resource type="Texture2D" uid="uid://dtf30lxs5l3qv" path="res://assets/AESPRITES/player-Sheet.png" id="1_invc4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_le7ba"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://5t6orfuqt80o" path="res://textures/04.png" id="7_8vst2"]
 [ext_resource type="AudioStream" uid="uid://4vruoon5elbu" path="res://sounds/Flashlight Sound Effect sfx.mp3" id="7_q1ror"]
 [ext_resource type="AudioStream" uid="uid://u36lu5mhmddd" path="res://sounds/2- Mental Vortex.mp3" id="8_b6tag"]
+[ext_resource type="Texture2D" uid="uid://dkr6jtxi5sf1p" path="res://assets/AESPRITES/GIJOE.png" id="8_jjd6b"]
+[ext_resource type="Texture2D" uid="uid://cooohke826lth" path="res://assets/AESPRITES/battery.png" id="8_y8gyw"]
 [ext_resource type="Texture2D" uid="uid://bbjr8vga18qou" path="res://assets/Circular 1 - 128x128.png" id="9_qffds"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tiefd"]
@@ -198,6 +200,48 @@ rounded = true
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_ixhos")
 texture_progress = SubResource("AtlasTexture_c5qc6")
+
+[node name="Battery" type="Control" parent="CanvasGroup/FlashLightKeys"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 77.0
+offset_top = -201.0
+offset_right = 117.0
+offset_bottom = -161.0
+
+[node name="Battery Label" type="Label" parent="CanvasGroup/FlashLightKeys/Battery"]
+layout_mode = 0
+offset_left = -479.0
+offset_top = 597.0
+offset_right = -421.0
+offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("6_hb63m")
+theme_override_font_sizes/font_size = 14
+text = "0 / 3"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasGroup/FlashLightKeys/Battery"]
+layout_mode = 0
+offset_left = -510.0
+offset_top = 582.0
+offset_right = -446.0
+offset_bottom = 646.0
+scale = Vector2(0.419667, 0.640067)
+texture = ExtResource("8_y8gyw")
+
+[node name="GI Joe" type="Control" parent="CanvasGroup"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasGroup/GI Joe"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 38.0
+offset_right = 65.0
+offset_bottom = 102.0
+scale = Vector2(0.86194, 0.86055)
+texture = ExtResource("8_jjd6b")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 

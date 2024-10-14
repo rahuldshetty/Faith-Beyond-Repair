@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://c22wpbfcftpl7"]
+
+[ext_resource type="Script" path="res://scenes/NPCs/Monster.gd" id="1_2u5k7"]
+[ext_resource type="Texture2D" uid="uid://3l06h8s7g0t" path="res://assets/AESPRITES/monster1.png" id="1_tlfi2"]
+[ext_resource type="Texture2D" uid="uid://df1rypn7et2kv" path="res://assets/AESPRITES/monster_die.png" id="3_6e2u8"]
+[ext_resource type="AudioStream" uid="uid://cvuo2yg2aub3y" path="res://sounds/ghost.wav" id="4_uqfif"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqxvw"]
+atlas = ExtResource("1_tlfi2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyjq7"]
+atlas = ExtResource("1_tlfi2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8eu7"]
+atlas = ExtResource("1_tlfi2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dthgh"]
+atlas = ExtResource("1_tlfi2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgd7k"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mry2s"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waplb"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0liq7"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qspfb"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofg21"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeb42"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q36s"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu4xw"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g2f1"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beymh"]
+atlas = ExtResource("3_6e2u8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhw2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqxvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyjq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8eu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dthgh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgd7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mry2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waplb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0liq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qspfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofg21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeb42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q36s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu4xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g2f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beymh")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4d1c"]
+radius = 24.1868
+
+[node name="Monster" type="Area2D"]
+script = ExtResource("1_2u5k7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jhw2h")
+animation = &"die"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -8)
+shape = SubResource("CircleShape2D_d4d1c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uqfif")
+pitch_scale = 0.6
+autoplay = true
+attenuation = 0.63728
+panning_strength = 0.74
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca5xo33gx8ily"]
+
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="1_5we8h"]
+[ext_resource type="Script" path="res://scripts/gijoe_points.gd" id="1_bk68x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adbl1"]
+radius = 60.0333
+
+[node name="GijoePoints" type="Area2D"]
+script = ExtResource("1_bk68x")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 101
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -85.0
+offset_top = -83.0
+offset_right = 89.0
+offset_bottom = 3.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_5we8h")
+theme_override_font_sizes/font_size = 10
+text = "Press E"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_direction = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speech" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 101
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 162.0
+offset_top = 136.0
+offset_right = -178.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_5we8h")
+theme_override_font_sizes/font_size = 12
+text = "Before you proceed forward, make sure to pick up the flashlight. You will need it to traverse the darkness."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_adbl1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://cev3u02r342ep"]
+
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="1_fqjuk"]
+[ext_resource type="Texture2D" uid="uid://c812x8a88u8qi" path="res://assets/AESPRITES/boy1.png" id="2_mkd8b"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="3_tgvnl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avr00"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhy51"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wafw"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp7xw"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm2kt"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcmjp"]
+atlas = ExtResource("2_mkd8b")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdy76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avr00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhy51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wafw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp7xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm2kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcmjp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j62t3"]
+radius = 37.3393
+
+[node name="Boy1" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_fqjuk")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdy76")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j62t3")
+
+[node name="Label" type="Label" parent="."]
+z_index = 101
+offset_left = -13.3333
+offset_top = -28.0
+offset_right = 121.667
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("3_tgvnl")
+theme_override_font_sizes/font_size = 6
+text = "Boy 1"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speech" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 101
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 162.0
+offset_top = 136.0
+offset_right = -178.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_tgvnl")
+theme_override_font_sizes/font_size = 12
+text = "Before you proceed forward, make sure to pick up the flashlight. You will need it to traverse the darkness."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_direction = 1

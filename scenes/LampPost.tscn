@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://3ft1iufvp7qa"]
+
+[ext_resource type="Script" path="res://scripts/LampPost.gd" id="1_033a8"]
+[ext_resource type="Texture2D" uid="uid://bo4efprabi77q" path="res://assets/AESPRITES/lamp_post.png" id="1_g5ew6"]
+[ext_resource type="Texture2D" uid="uid://cfrguoqesiywq" path="res://assets/t_flashlightpattern.png" id="2_anoqq"]
+[ext_resource type="Script" path="res://scenes/Pickables/FlashLight.gd" id="3_uud06"]
+[ext_resource type="PackedScene" uid="uid://chxaf2gxhccnf" path="res://scenes/SafeZones.tscn" id="4_aagyv"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="6_qsonh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_a16sw"]
+radius = 0.225
+height = 100.0
+
+[sub_resource type="Gradient" id="Gradient_qnt2i"]
+colors = PackedColorArray(0.737255, 0.690196, 0.0901961, 0.0705882, 0.737255, 0.690196, 0.0901961, 0.0705882)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rdtsx"]
+gradient = SubResource("Gradient_qnt2i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0f1"]
+size = Vector2(33, 36)
+
+[node name="LampPost" type="Area2D"]
+script = ExtResource("1_033a8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -67)
+scale = Vector2(1.86692, 2.4637)
+texture = ExtResource("1_g5ew6")
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(11, -110)
+scale = Vector2(0.045, 0.045)
+color = Color(0.92549, 0.435294, 0, 1)
+texture = ExtResource("2_anoqq")
+texture_scale = 7.4
+script = ExtResource("3_uud06")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="FlashLight"]
+z_index = -100
+position = Vector2(0.000263214, 0)
+scale = Vector2(6900.33, 30.1471)
+mesh = SubResource("SphereMesh_a16sw")
+texture = SubResource("GradientTexture1D_rdtsx")
+
+[node name="SafeZones" parent="FlashLight" instance=ExtResource("4_aagyv")]
+position = Vector2(-200, 2044.44)
+scale = Vector2(15.0249, 13.4685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -18)
+shape = SubResource("RectangleShape2D_ow0f1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speech" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 101
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 162.0
+offset_top = 136.0
+offset_right = -178.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_qsonh")
+theme_override_font_sizes/font_size = 12
+text = "Before you proceed forward, make sure to pick up the flashlight. You will need it to traverse the darkness."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

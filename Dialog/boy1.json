@@ -1,0 +1,45 @@
+[
+	{
+		"action": "conversation",
+		"speaker": "Boy 1",
+		"dialog": "[Crying]"
+	},
+	{
+		"action": "conversation",
+		"speaker": "Boy 1",
+		"dialog": "[Sobs]"
+	},
+	{
+		"action": "conversation",
+		"speaker": "Me",
+		"dialog": "What's wrong little fella?"
+	},
+	{
+		"action": "conversation",
+		"speaker": "Boy 1",
+		"dialog": "[Crying] I lost my GI Joe toy in the graveyward and now the ghosts are not returning it back."
+	},
+	{
+		"action": "check_state",
+		"state": "HAS_GIJOE",
+		"value": true,
+		"speaker": "Boy 1",
+		"dialog": "Could you please help me get back my GI Joe toy from the ghosts?"
+	},
+	{
+		"action": "give_battery",
+		"take": "HAS_GIJOE",
+		"speaker": "Boy 1",
+		"dialog": "[Happy] Thank you Mr! I've something for you."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Boy 1",
+		"dialog": "I found these batteries while playing at the park."
+	},
+	{
+		"action": "conversation",
+		"speaker": "Boy 1",
+		"dialog": "May the light guide you."
+	}
+]

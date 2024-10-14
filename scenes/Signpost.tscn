@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8opwwtcwxkvv"]
+
+[ext_resource type="Script" path="res://scripts/Signpost.gd" id="1_f880q"]
+[ext_resource type="Texture2D" uid="uid://b0nmdyl70mu3v" path="res://assets/AESPRITES/signpost.png" id="1_r3nb0"]
+[ext_resource type="FontFile" uid="uid://cyttrbejqj1xo" path="res://fonts/NotJamFaithless9.ttf" id="2_xxi46"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wg3rt"]
+radius = 33.1851
+
+[node name="Signpost" type="Area2D"]
+script = ExtResource("1_f880q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r3nb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("CircleShape2D_wg3rt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speech" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 101
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 162.0
+offset_top = 136.0
+offset_right = -178.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xxi46")
+theme_override_font_sizes/font_size = 12
+text = "Before you proceed forward, make sure to pick up the flashlight. You will need it to traverse the darkness."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_direction = 1
